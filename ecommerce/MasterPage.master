@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav mr-auto">
+                        <a class="navbar-brand" href="produtos.aspx">EletroMarket</a>
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" NavigateUrl="area_cliente.aspx" class="nav-link" runat="server">Perfil</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" NavigateUrl="sobre.aspx" class="nav-link" runat="server">Sobre</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="hlLogin" NavigateUrl="login.aspx" class="nav-link" runat="server">Login</asp:HyperLink>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <div>
+                                <asp:DropDownList ID="ddl1" AutoPostBack="true" CssClass="form-control" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                    <asp:ListItem>Categoria</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex justify-content-right">
+                        <form class="form-inline my-2 my-lg-0">
+                            <asp:TextBox ID="SearchBox" runat="server" AutoPostBack="true" class="form-control mr-sm-2" placeholder="Pesquisar" aria-label="Pesquisar"></asp:TextBox>
+                            <asp:Button ID="SearchButton" runat="server" class="btn btn-outline-success my-2 my-sm-0" Text="Buscar" OnClick="SearchButton_Click" />
+                            <asp:Panel ID="AutoCompletePanel" runat="server"></asp:Panel>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

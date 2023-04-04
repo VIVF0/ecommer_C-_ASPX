@@ -1,0 +1,1621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="insere_vendas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="forma_pag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insere_vendasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insere_vendasResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastra_usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cpf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastra_usuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="cadastra_localidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pais" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bairro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rua" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numero_residencia" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="complemento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastra_localidadeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="cadastra_subcategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subcategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastra_subcategoriaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="cadastra_produto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome_produto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="categoria" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="preco" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data_lancamento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="peso" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="caminho_imagem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cadastra_produtoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insere_item_pedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_venda" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_produto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insere_item_pedidoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_usuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_usuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_usuariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_usuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_usuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listar_categoria">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_categoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_categoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listar_vendas">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_vendasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_vendasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_produto_nome">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome_produto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_produto_nomeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_produto_nomeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_localidade_rua">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rua" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_localidade_ruaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_localidade_ruaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_produto_id">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_produto_idResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_produto_idResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listar_itens_pedido">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_itens_pedidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_itens_pedidoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listar_produtos">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_produtosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_produtosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="count_prod_categoria">
+        <s:complexType />
+      </s:element>
+      <s:element name="count_prod_categoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="count_prod_categoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listar_produtos_categoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categoria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listar_produtos_categoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_produtos_categoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_localidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_localidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_localidadeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleta_localidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleta_localidadeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="buscar_produto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_produto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscar_produtoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscar_produtoResult" type="tns:ArrayOfProdutos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProdutos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Produtos" nillable="true" type="tns:Produtos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Produtos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_produto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nome_produto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="categoria" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="preco_unitario" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="data_lancamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="data_cadastro" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="peso_gramas" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="caminho_imagm" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="listar_categorias_list">
+        <s:complexType />
+      </s:element>
+      <s:element name="listar_categorias_listResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listar_categorias_listResult" type="tns:ArrayOfSubcategoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubcategoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Subcategoria" nillable="true" type="tns:Subcategoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Subcategoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_subcategoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="subcategoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="categoria" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="buscar_subcategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subcategoria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscar_subcategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscar_subcategoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifica_subcategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subcategoria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifica_subcategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifica_subcategoriaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifica_usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifica_usuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifica_usuarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifica_permissao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifica_permissaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifica_permissaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="total_vendas">
+        <s:complexType />
+      </s:element>
+      <s:element name="total_vendasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="total_vendasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="total_usuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="total_usuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="total_usuariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pedido_usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pedido_usuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pedido_usuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_carrinho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_produto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insert_carrinhoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insere_tabela_itens">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_produto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtd" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_venda" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insere_tabela_itensResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="retorna_carrinho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_produto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="retorna_carrinhoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="carrinho_usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="carrinho_usuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="carrinho_usuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_carrinho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_carrinhoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_carrinhoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_venda_local">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_local" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busca_venda_localResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="busca_venda_localResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="id_ultimo_insert">
+        <s:complexType />
+      </s:element>
+      <s:element name="id_ultimo_insertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id_ultimo_insertResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="insere_vendasSoapIn">
+    <wsdl:part name="parameters" element="tns:insere_vendas" />
+  </wsdl:message>
+  <wsdl:message name="insere_vendasSoapOut">
+    <wsdl:part name="parameters" element="tns:insere_vendasResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_usuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:cadastra_usuario" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_usuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:cadastra_usuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_localidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:cadastra_localidade" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_localidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:cadastra_localidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_subcategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:cadastra_subcategoria" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_subcategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:cadastra_subcategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_produtoSoapIn">
+    <wsdl:part name="parameters" element="tns:cadastra_produto" />
+  </wsdl:message>
+  <wsdl:message name="cadastra_produtoSoapOut">
+    <wsdl:part name="parameters" element="tns:cadastra_produtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="insere_item_pedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:insere_item_pedido" />
+  </wsdl:message>
+  <wsdl:message name="insere_item_pedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:insere_item_pedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_usuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_usuarios" />
+  </wsdl:message>
+  <wsdl:message name="listar_usuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_usuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_usuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_usuario" />
+  </wsdl:message>
+  <wsdl:message name="busca_usuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_usuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_categoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_categoria" />
+  </wsdl:message>
+  <wsdl:message name="listar_categoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_categoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_vendasSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_vendas" />
+  </wsdl:message>
+  <wsdl:message name="listar_vendasSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_vendasResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_produto_nomeSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_produto_nome" />
+  </wsdl:message>
+  <wsdl:message name="busca_produto_nomeSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_produto_nomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_localidade_ruaSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_localidade_rua" />
+  </wsdl:message>
+  <wsdl:message name="busca_localidade_ruaSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_localidade_ruaResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_produto_idSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_produto_id" />
+  </wsdl:message>
+  <wsdl:message name="busca_produto_idSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_produto_idResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_itens_pedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_itens_pedido" />
+  </wsdl:message>
+  <wsdl:message name="listar_itens_pedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_itens_pedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_produtosSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_produtos" />
+  </wsdl:message>
+  <wsdl:message name="listar_produtosSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_produtosResponse" />
+  </wsdl:message>
+  <wsdl:message name="count_prod_categoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:count_prod_categoria" />
+  </wsdl:message>
+  <wsdl:message name="count_prod_categoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:count_prod_categoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_produtos_categoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_produtos_categoria" />
+  </wsdl:message>
+  <wsdl:message name="listar_produtos_categoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_produtos_categoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_localidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_localidade" />
+  </wsdl:message>
+  <wsdl:message name="busca_localidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_localidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleta_localidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:deleta_localidade" />
+  </wsdl:message>
+  <wsdl:message name="deleta_localidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:deleta_localidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscar_produtoSoapIn">
+    <wsdl:part name="parameters" element="tns:buscar_produto" />
+  </wsdl:message>
+  <wsdl:message name="buscar_produtoSoapOut">
+    <wsdl:part name="parameters" element="tns:buscar_produtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_categorias_listSoapIn">
+    <wsdl:part name="parameters" element="tns:listar_categorias_list" />
+  </wsdl:message>
+  <wsdl:message name="listar_categorias_listSoapOut">
+    <wsdl:part name="parameters" element="tns:listar_categorias_listResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscar_subcategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:buscar_subcategoria" />
+  </wsdl:message>
+  <wsdl:message name="buscar_subcategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:buscar_subcategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifica_subcategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:verifica_subcategoria" />
+  </wsdl:message>
+  <wsdl:message name="verifica_subcategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:verifica_subcategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifica_usuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:verifica_usuario" />
+  </wsdl:message>
+  <wsdl:message name="verifica_usuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:verifica_usuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifica_permissaoSoapIn">
+    <wsdl:part name="parameters" element="tns:verifica_permissao" />
+  </wsdl:message>
+  <wsdl:message name="verifica_permissaoSoapOut">
+    <wsdl:part name="parameters" element="tns:verifica_permissaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="total_vendasSoapIn">
+    <wsdl:part name="parameters" element="tns:total_vendas" />
+  </wsdl:message>
+  <wsdl:message name="total_vendasSoapOut">
+    <wsdl:part name="parameters" element="tns:total_vendasResponse" />
+  </wsdl:message>
+  <wsdl:message name="total_usuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:total_usuarios" />
+  </wsdl:message>
+  <wsdl:message name="total_usuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:total_usuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="pedido_usuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:pedido_usuario" />
+  </wsdl:message>
+  <wsdl:message name="pedido_usuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:pedido_usuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="insert_carrinhoSoapIn">
+    <wsdl:part name="parameters" element="tns:insert_carrinho" />
+  </wsdl:message>
+  <wsdl:message name="insert_carrinhoSoapOut">
+    <wsdl:part name="parameters" element="tns:insert_carrinhoResponse" />
+  </wsdl:message>
+  <wsdl:message name="insere_tabela_itensSoapIn">
+    <wsdl:part name="parameters" element="tns:insere_tabela_itens" />
+  </wsdl:message>
+  <wsdl:message name="insere_tabela_itensSoapOut">
+    <wsdl:part name="parameters" element="tns:insere_tabela_itensResponse" />
+  </wsdl:message>
+  <wsdl:message name="retorna_carrinhoSoapIn">
+    <wsdl:part name="parameters" element="tns:retorna_carrinho" />
+  </wsdl:message>
+  <wsdl:message name="retorna_carrinhoSoapOut">
+    <wsdl:part name="parameters" element="tns:retorna_carrinhoResponse" />
+  </wsdl:message>
+  <wsdl:message name="carrinho_usuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:carrinho_usuario" />
+  </wsdl:message>
+  <wsdl:message name="carrinho_usuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:carrinho_usuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_carrinhoSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_carrinho" />
+  </wsdl:message>
+  <wsdl:message name="busca_carrinhoSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_carrinhoResponse" />
+  </wsdl:message>
+  <wsdl:message name="busca_venda_localSoapIn">
+    <wsdl:part name="parameters" element="tns:busca_venda_local" />
+  </wsdl:message>
+  <wsdl:message name="busca_venda_localSoapOut">
+    <wsdl:part name="parameters" element="tns:busca_venda_localResponse" />
+  </wsdl:message>
+  <wsdl:message name="id_ultimo_insertSoapIn">
+    <wsdl:part name="parameters" element="tns:id_ultimo_insert" />
+  </wsdl:message>
+  <wsdl:message name="id_ultimo_insertSoapOut">
+    <wsdl:part name="parameters" element="tns:id_ultimo_insertResponse" />
+  </wsdl:message>
+  <wsdl:portType name="e_commerceSoap">
+    <wsdl:operation name="insere_vendas">
+      <wsdl:input message="tns:insere_vendasSoapIn" />
+      <wsdl:output message="tns:insere_vendasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_usuario">
+      <wsdl:input message="tns:cadastra_usuarioSoapIn" />
+      <wsdl:output message="tns:cadastra_usuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_localidade">
+      <wsdl:input message="tns:cadastra_localidadeSoapIn" />
+      <wsdl:output message="tns:cadastra_localidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_subcategoria">
+      <wsdl:input message="tns:cadastra_subcategoriaSoapIn" />
+      <wsdl:output message="tns:cadastra_subcategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_produto">
+      <wsdl:input message="tns:cadastra_produtoSoapIn" />
+      <wsdl:output message="tns:cadastra_produtoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insere_item_pedido">
+      <wsdl:input message="tns:insere_item_pedidoSoapIn" />
+      <wsdl:output message="tns:insere_item_pedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_usuarios">
+      <wsdl:input message="tns:listar_usuariosSoapIn" />
+      <wsdl:output message="tns:listar_usuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_usuario">
+      <wsdl:input message="tns:busca_usuarioSoapIn" />
+      <wsdl:output message="tns:busca_usuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_categoria">
+      <wsdl:input message="tns:listar_categoriaSoapIn" />
+      <wsdl:output message="tns:listar_categoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_vendas">
+      <wsdl:input message="tns:listar_vendasSoapIn" />
+      <wsdl:output message="tns:listar_vendasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_produto_nome">
+      <wsdl:input message="tns:busca_produto_nomeSoapIn" />
+      <wsdl:output message="tns:busca_produto_nomeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_localidade_rua">
+      <wsdl:input message="tns:busca_localidade_ruaSoapIn" />
+      <wsdl:output message="tns:busca_localidade_ruaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_produto_id">
+      <wsdl:input message="tns:busca_produto_idSoapIn" />
+      <wsdl:output message="tns:busca_produto_idSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_itens_pedido">
+      <wsdl:input message="tns:listar_itens_pedidoSoapIn" />
+      <wsdl:output message="tns:listar_itens_pedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_produtos">
+      <wsdl:input message="tns:listar_produtosSoapIn" />
+      <wsdl:output message="tns:listar_produtosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="count_prod_categoria">
+      <wsdl:input message="tns:count_prod_categoriaSoapIn" />
+      <wsdl:output message="tns:count_prod_categoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_produtos_categoria">
+      <wsdl:input message="tns:listar_produtos_categoriaSoapIn" />
+      <wsdl:output message="tns:listar_produtos_categoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_localidade">
+      <wsdl:input message="tns:busca_localidadeSoapIn" />
+      <wsdl:output message="tns:busca_localidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleta_localidade">
+      <wsdl:input message="tns:deleta_localidadeSoapIn" />
+      <wsdl:output message="tns:deleta_localidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscar_produto">
+      <wsdl:input message="tns:buscar_produtoSoapIn" />
+      <wsdl:output message="tns:buscar_produtoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias_list">
+      <wsdl:input message="tns:listar_categorias_listSoapIn" />
+      <wsdl:output message="tns:listar_categorias_listSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscar_subcategoria">
+      <wsdl:input message="tns:buscar_subcategoriaSoapIn" />
+      <wsdl:output message="tns:buscar_subcategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifica_subcategoria">
+      <wsdl:input message="tns:verifica_subcategoriaSoapIn" />
+      <wsdl:output message="tns:verifica_subcategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifica_usuario">
+      <wsdl:input message="tns:verifica_usuarioSoapIn" />
+      <wsdl:output message="tns:verifica_usuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifica_permissao">
+      <wsdl:input message="tns:verifica_permissaoSoapIn" />
+      <wsdl:output message="tns:verifica_permissaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="total_vendas">
+      <wsdl:input message="tns:total_vendasSoapIn" />
+      <wsdl:output message="tns:total_vendasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="total_usuarios">
+      <wsdl:input message="tns:total_usuariosSoapIn" />
+      <wsdl:output message="tns:total_usuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pedido_usuario">
+      <wsdl:input message="tns:pedido_usuarioSoapIn" />
+      <wsdl:output message="tns:pedido_usuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insert_carrinho">
+      <wsdl:input message="tns:insert_carrinhoSoapIn" />
+      <wsdl:output message="tns:insert_carrinhoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insere_tabela_itens">
+      <wsdl:input message="tns:insere_tabela_itensSoapIn" />
+      <wsdl:output message="tns:insere_tabela_itensSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="retorna_carrinho">
+      <wsdl:input message="tns:retorna_carrinhoSoapIn" />
+      <wsdl:output message="tns:retorna_carrinhoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="carrinho_usuario">
+      <wsdl:input message="tns:carrinho_usuarioSoapIn" />
+      <wsdl:output message="tns:carrinho_usuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_carrinho">
+      <wsdl:input message="tns:busca_carrinhoSoapIn" />
+      <wsdl:output message="tns:busca_carrinhoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busca_venda_local">
+      <wsdl:input message="tns:busca_venda_localSoapIn" />
+      <wsdl:output message="tns:busca_venda_localSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="id_ultimo_insert">
+      <wsdl:input message="tns:id_ultimo_insertSoapIn" />
+      <wsdl:output message="tns:id_ultimo_insertSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="e_commerceSoap" type="tns:e_commerceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insere_vendas">
+      <soap:operation soapAction="http://tempuri.org/insere_vendas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_usuario">
+      <soap:operation soapAction="http://tempuri.org/cadastra_usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_localidade">
+      <soap:operation soapAction="http://tempuri.org/cadastra_localidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_subcategoria">
+      <soap:operation soapAction="http://tempuri.org/cadastra_subcategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_produto">
+      <soap:operation soapAction="http://tempuri.org/cadastra_produto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insere_item_pedido">
+      <soap:operation soapAction="http://tempuri.org/insere_item_pedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_usuarios">
+      <soap:operation soapAction="http://tempuri.org/listar_usuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_usuario">
+      <soap:operation soapAction="http://tempuri.org/busca_usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categoria">
+      <soap:operation soapAction="http://tempuri.org/listar_categoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_vendas">
+      <soap:operation soapAction="http://tempuri.org/listar_vendas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_produto_nome">
+      <soap:operation soapAction="http://tempuri.org/busca_produto_nome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_localidade_rua">
+      <soap:operation soapAction="http://tempuri.org/busca_localidade_rua" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_produto_id">
+      <soap:operation soapAction="http://tempuri.org/busca_produto_id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_itens_pedido">
+      <soap:operation soapAction="http://tempuri.org/listar_itens_pedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_produtos">
+      <soap:operation soapAction="http://tempuri.org/listar_produtos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="count_prod_categoria">
+      <soap:operation soapAction="http://tempuri.org/count_prod_categoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_produtos_categoria">
+      <soap:operation soapAction="http://tempuri.org/listar_produtos_categoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_localidade">
+      <soap:operation soapAction="http://tempuri.org/busca_localidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleta_localidade">
+      <soap:operation soapAction="http://tempuri.org/deleta_localidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_produto">
+      <soap:operation soapAction="http://tempuri.org/buscar_produto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias_list">
+      <soap:operation soapAction="http://tempuri.org/listar_categorias_list" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_subcategoria">
+      <soap:operation soapAction="http://tempuri.org/buscar_subcategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifica_subcategoria">
+      <soap:operation soapAction="http://tempuri.org/verifica_subcategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifica_usuario">
+      <soap:operation soapAction="http://tempuri.org/verifica_usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifica_permissao">
+      <soap:operation soapAction="http://tempuri.org/verifica_permissao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="total_vendas">
+      <soap:operation soapAction="http://tempuri.org/total_vendas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="total_usuarios">
+      <soap:operation soapAction="http://tempuri.org/total_usuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pedido_usuario">
+      <soap:operation soapAction="http://tempuri.org/pedido_usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_carrinho">
+      <soap:operation soapAction="http://tempuri.org/insert_carrinho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insere_tabela_itens">
+      <soap:operation soapAction="http://tempuri.org/insere_tabela_itens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retorna_carrinho">
+      <soap:operation soapAction="http://tempuri.org/retorna_carrinho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="carrinho_usuario">
+      <soap:operation soapAction="http://tempuri.org/carrinho_usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_carrinho">
+      <soap:operation soapAction="http://tempuri.org/busca_carrinho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_venda_local">
+      <soap:operation soapAction="http://tempuri.org/busca_venda_local" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="id_ultimo_insert">
+      <soap:operation soapAction="http://tempuri.org/id_ultimo_insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="e_commerceSoap12" type="tns:e_commerceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insere_vendas">
+      <soap12:operation soapAction="http://tempuri.org/insere_vendas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_usuario">
+      <soap12:operation soapAction="http://tempuri.org/cadastra_usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_localidade">
+      <soap12:operation soapAction="http://tempuri.org/cadastra_localidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_subcategoria">
+      <soap12:operation soapAction="http://tempuri.org/cadastra_subcategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastra_produto">
+      <soap12:operation soapAction="http://tempuri.org/cadastra_produto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insere_item_pedido">
+      <soap12:operation soapAction="http://tempuri.org/insere_item_pedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_usuarios">
+      <soap12:operation soapAction="http://tempuri.org/listar_usuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_usuario">
+      <soap12:operation soapAction="http://tempuri.org/busca_usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categoria">
+      <soap12:operation soapAction="http://tempuri.org/listar_categoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_vendas">
+      <soap12:operation soapAction="http://tempuri.org/listar_vendas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_produto_nome">
+      <soap12:operation soapAction="http://tempuri.org/busca_produto_nome" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_localidade_rua">
+      <soap12:operation soapAction="http://tempuri.org/busca_localidade_rua" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_produto_id">
+      <soap12:operation soapAction="http://tempuri.org/busca_produto_id" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_itens_pedido">
+      <soap12:operation soapAction="http://tempuri.org/listar_itens_pedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_produtos">
+      <soap12:operation soapAction="http://tempuri.org/listar_produtos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="count_prod_categoria">
+      <soap12:operation soapAction="http://tempuri.org/count_prod_categoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_produtos_categoria">
+      <soap12:operation soapAction="http://tempuri.org/listar_produtos_categoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_localidade">
+      <soap12:operation soapAction="http://tempuri.org/busca_localidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleta_localidade">
+      <soap12:operation soapAction="http://tempuri.org/deleta_localidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_produto">
+      <soap12:operation soapAction="http://tempuri.org/buscar_produto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias_list">
+      <soap12:operation soapAction="http://tempuri.org/listar_categorias_list" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_subcategoria">
+      <soap12:operation soapAction="http://tempuri.org/buscar_subcategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifica_subcategoria">
+      <soap12:operation soapAction="http://tempuri.org/verifica_subcategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifica_usuario">
+      <soap12:operation soapAction="http://tempuri.org/verifica_usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifica_permissao">
+      <soap12:operation soapAction="http://tempuri.org/verifica_permissao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="total_vendas">
+      <soap12:operation soapAction="http://tempuri.org/total_vendas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="total_usuarios">
+      <soap12:operation soapAction="http://tempuri.org/total_usuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pedido_usuario">
+      <soap12:operation soapAction="http://tempuri.org/pedido_usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert_carrinho">
+      <soap12:operation soapAction="http://tempuri.org/insert_carrinho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insere_tabela_itens">
+      <soap12:operation soapAction="http://tempuri.org/insere_tabela_itens" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retorna_carrinho">
+      <soap12:operation soapAction="http://tempuri.org/retorna_carrinho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="carrinho_usuario">
+      <soap12:operation soapAction="http://tempuri.org/carrinho_usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_carrinho">
+      <soap12:operation soapAction="http://tempuri.org/busca_carrinho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busca_venda_local">
+      <soap12:operation soapAction="http://tempuri.org/busca_venda_local" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="id_ultimo_insert">
+      <soap12:operation soapAction="http://tempuri.org/id_ultimo_insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="e_commerce">
+    <wsdl:port name="e_commerceSoap" binding="tns:e_commerceSoap">
+      <soap:address location="http://localhost:64037/e_commerce.asmx" />
+    </wsdl:port>
+    <wsdl:port name="e_commerceSoap12" binding="tns:e_commerceSoap12">
+      <soap12:address location="http://localhost:64037/e_commerce.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

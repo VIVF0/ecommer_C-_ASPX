@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "consumivel", "consumivel\", "{47C664DE-F3A9-4A7C-BC1F-93BA82321A85}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64037"
+		Debug.AspNetCompiler.PhysicalPath = "consumivel\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64037\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64037"
+		Release.AspNetCompiler.PhysicalPath = "consumivel\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64037\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64037"
+		SlnRelativePath = "consumivel\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ecommerce", "ecommerce\", "{C7C1A331-4607-4E86-8C54-59D68BD6D2D4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47C664DE-F3A9-4A7C-BC1F-93BA82321A85} = {47C664DE-F3A9-4A7C-BC1F-93BA82321A85}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54712"
+		Debug.AspNetCompiler.PhysicalPath = "ecommerce\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54712\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54712"
+		Release.AspNetCompiler.PhysicalPath = "ecommerce\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54712\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54712"
+		SlnRelativePath = "ecommerce\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47C664DE-F3A9-4A7C-BC1F-93BA82321A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C664DE-F3A9-4A7C-BC1F-93BA82321A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C1A331-4607-4E86-8C54-59D68BD6D2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C1A331-4607-4E86-8C54-59D68BD6D2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD6BC4D8-3716-4397-9D22-92FEFE0E3300}
+	EndGlobalSection
+EndGlobal
